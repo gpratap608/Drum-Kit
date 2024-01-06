@@ -2,13 +2,14 @@ for ( var i =0; i<document.querySelectorAll(".drum").length; i++){
     document.querySelectorAll(".drum")[i].addEventListener("click",function (){
         var buttoninnerHTML = this.innerHTML;
         makesound(buttoninnerHTML);
-    
+        buttonfade(buttoninnerHTML)
     });
-    document.addEventListener("keyup",function(event){
-        makesound(event.key);
-        
-    })
     
+    document.body.addEventListener("keypress",(event)=>{
+        makesound(event.key)
+        buttonfade(event.key)
+    })
+  
     function makesound(key){
     
         switch(key){
@@ -45,11 +46,14 @@ for ( var i =0; i<document.querySelectorAll(".drum").length; i++){
         }
        
     }
-    
-    
-    
-    
-    
+
+    function buttonfade(pressedKey){
+        var activeKey = document.querySelector("."+pressedKey)
+        activeKey.classList.add("pressButton")
+        setTimeout(function(){
+            activeKey.classList.remove("pressButton")
+        },100)
     }
+}
     
     

@@ -41,7 +41,9 @@ body {
   .Drums {
     margin: 10% auto;
   }
-  
+  .pressButton{
+    opacity: 0.5;
+  }
   
   .drum {
     outline: none;
